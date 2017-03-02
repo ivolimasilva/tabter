@@ -62,7 +62,6 @@ typings/
 # dotenv environment variables file
 .env
 
-
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -90,3 +89,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+### Webpack ###
+dist/

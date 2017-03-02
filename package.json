@@ -1,0 +1,30 @@
+{
+	"name": "tabter",
+	"description": "An alternative to share Google Sheets with a better experience in mind",
+	"version": "0.0.0",
+	"author": "Ivo Lima Silva (ivolimasilva@outlook.com)",
+	"license": "GPL-3.0",
+	"private": true,
+	"scripts": {
+		"dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+		"build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+	},
+	"dependencies": {
+		"sheetrock": "^1.1.4",
+		"vue": "^2.2.1",
+		"vue-router": "^2.3.0"
+	},
+	"devDependencies": {
+		"babel-core": "^6.0.0",
+		"babel-loader": "^6.0.0",
+		"babel-preset-latest": "^6.0.0",
+		"cross-env": "^3.0.0",
+		"css-loader": "^0.25.0",
+		"extract-text-webpack-plugin": "^2.0.0",
+		"file-loader": "^0.9.0",
+		"vue-loader": "^11.0.0",
+		"vue-template-compiler": "^2.2.1",
+		"webpack": "^2.2.0",
+		"webpack-dev-server": "^2.2.0"
+	}
+}
