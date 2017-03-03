@@ -1,48 +1,56 @@
 <template>
-	<div class="container is-fluid">
+	<section class="section table-component">
 
 		<!-- Start filter -->
-		<div class="columns">
-			<div class="column" v-for="filter in filters">
-				<label class="label">{{ filter }}</label>
-				<span class="control">
-					<span class="select">
+		<div class="container is-fluid">
+			<div class="columns" v-if="filters.length > 0">
+				<div class="column" v-for="filter in filters">
+					<label class="label">{{ filter }}</label>
+					<span class="is-fullwidth">
+					<span class="select is-fullwidth">
 						<select>
 							<option v-for="option in options(filter)">{{ option }}</option>
 						</select>
 					</span>
-				</span>
+					</span>
+				</div>
 			</div>
+			<div class="has-text-centered" v-if="filters.length == 0">
+				<h3 class="title is-5">You have no filters selected. Click on a <span class="icon"><i class="fa fa-search-plus"></i></span> to add a filter.</h3>
+			</div>
+			<hr>
 		</div>
 		<!-- End filter -->
 
 		<!-- Start Table -->
-		<table class="table">
-			<thead>
-				<tr>
-					<th v-for="label in labels" nowrap>
-						{{ label }}
-						<a v-if="!isFilter(label)" v-on:click="addFilter(label)">
-							<span class="icon">
-								<i class="fa fa-search-plus"></i>
-							</span>
-						</a>
-						<a v-if="isFilter(label)" v-on:click="removeFilter(label)">
-							<span class="icon">
-								<i class="fa fa-search-minus"></i>
-							</span>
-						</a>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="row in rows">
-					<td v-for="field in row" v-text="field"></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="container is-fluid">
+			<table class="table">
+				<thead>
+					<tr>
+						<th v-for="label in labels" nowrap>
+							{{ label }}
+							<a v-if="!isFilter(label)" v-on:click="addFilter(label)">
+								<span class="icon">
+									<i class="fa fa-search-plus"></i>
+								</span>
+							</a>
+							<a v-if="isFilter(label)" v-on:click="removeFilter(label)">
+								<span class="icon">
+									<i class="fa fa-search-minus"></i>
+								</span>
+							</a>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="row in rows">
+						<td v-for="field in row" v-text="field"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<!-- End Table -->
-	</div>
+	</section>
 </template>
 
 <script>
@@ -143,32 +151,22 @@
 		display: none;
 	}
 	
+	@media screen and (min-width: 1000px) {
+		.container.is-fluid {
+			margin: 0 10em !important;
+		}
+	}
+	
 	.table th {
 		text-align: center !important;
 	}
 	
-	.table th .icon {
+	.table-component .icon {
 		font-size: small;
 	}
 	
 	.table td {
 		text-align: center !important;
 		vertical-align: middle;
-	}
-	
-	.table {
-		margin: 2em 0em;
-	}
-	
-	.control {
-		width: 100% !important;
-	}
-	
-	.control .select {
-		width: 100% !important;
-	}
-	
-	.control .select select {
-		width: 100% !important;
 	}
 </style>
