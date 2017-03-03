@@ -2,7 +2,18 @@
 	<div class="container is-fluid">
 
 		<!-- Start filter -->
-		{{ filters }}
+		<div class="columns">
+			<div class="column" v-for="filter in filters">
+				<label class="label">{{ filter }}</label>
+				<span class="control">
+					<span class="select">
+						<select>
+							<option v-for="option in options(filter)">{{ option }}</option>
+						</select>
+					</span>
+				</span>
+			</div>
+		</div>
 		<!-- End filter -->
 
 		<!-- Start Table -->
@@ -101,7 +112,7 @@
 				this.filters.indexOf(label) == -1 ? this.filters.push(label) : console.log('Filter already exists.');
 			},
 			removeFilter: function (label) {
-				this.filters.indexOf(label) != -1 ? this.filters.splice(this.filters.indexOf(label), 1) : console.log('Filter already exists.');
+				this.filters.indexOf(label) != -1 ? this.filters.splice(this.filters.indexOf(label), 1) : console.log('Filter doesn\'t exists.');
 			},
 			isFilter: function (label) {
 				if (this.filters.indexOf(label) == -1) {
@@ -109,6 +120,18 @@
 				} else {
 					return true;
 				}
+			},
+			options: function (filter) {
+				var options = [],
+					index = this.labels.indexOf(filter);
+
+				this.rows.forEach(function (row) {
+					if (options.indexOf(row[index]) == -1) {
+						options.push(row[index]);
+					}
+				});
+
+				return options.sort();
 			}
 		}
 	}
@@ -135,5 +158,17 @@
 	
 	.table {
 		margin: 2em 0em;
+	}
+	
+	.control {
+		width: 100% !important;
+	}
+	
+	.control .select {
+		width: 100% !important;
+	}
+	
+	.control .select select {
+		width: 100% !important;
 	}
 </style>
