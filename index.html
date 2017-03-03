@@ -4,11 +4,41 @@
 <head>
 	<meta charset="utf-8">
 	<title>tabter</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css">
 </head>
 
 <body>
-	<div id="app" v-cloak>
-		{{ msg }}
+	<div id="app">
+
+		<!-- Header -->
+		<section class="hero is-primary is-medium">
+			<div class="hero-head">
+				<header class="nav">
+					<div class="container">
+						<div class="nav-left">
+							<a class="nav-item" href="/">
+								<h1 class="title">
+									Tabter
+								</h1>
+							</a>
+						</div>
+						<div class="nav-right">
+							<a class="nav-item" href="https://github.com/ivolimasilva/tabter">
+								<span class="icon">
+									<i class="fa fa-github"></i>
+								</span>
+							</a>
+						</div>
+					</div>
+				</header>
+			</div>
+		</section>
+
+		<router-view></router-view>
 	</div>
 	<script src="/dist/build.js"></script>
 </body>
