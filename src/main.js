@@ -16,7 +16,7 @@ const router = new VueRouter({
 	mode: 'history',
 	base: __dirname,
 	routes: [
-		{ path: '/d/:id', component: Table },
+		{ path: '/d/:id/:page', component: Table },
 		{ path: '*', component: Home }
 	]
 });

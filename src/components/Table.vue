@@ -67,7 +67,7 @@
 			var self = this;
 
 			sheetrock({
-				url: 'https://docs.google.com/spreadsheets/d/' + this.$route.params.id + '/edit#gid=0',
+				url: 'https://docs.google.com/spreadsheets/d/' + this.$route.params.id + '/edit#gid=' + this.$route.params.page,
 				query: 'select *',
 				callback: function (err, options, response) {
 					if (err) {
