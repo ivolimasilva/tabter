@@ -3,19 +3,21 @@
 
 		<!-- Start filter -->
 		<div class="container is-fluid">
-			<div class="columns" v-if="filters.length > 0">
-				<div class="column" v-for="filter in filters">
-					<label class="label">{{ filter }}</label>
+			<div class="columns" v-if="activeFilters.length > 0">
+				<div class="column" v-for="(filter, index) in activeFilters">
+					<div class="label">
+						<label class="label">{{ filter.key }}</label>
+					</div>
 					<span class="is-fullwidth">
-					<span class="select is-fullwidth">
-						<select>
-							<option v-for="option in options(filter)">{{ option }}</option>
-						</select>
-					</span>
+						<span class="select is-fullwidth">
+							<select v-model="activeFilters[index].value">
+								<option v-for="option in options(filter)">{{ option }}</option>
+							</select>
+						</span>
 					</span>
 				</div>
 			</div>
-			<div class="has-text-centered" v-if="filters.length == 0">
+			<div class="has-text-centered" v-if="activeFilters.length == 0">
 				<h3 class="title is-5">You have no filters selected. Click on a <span class="icon"><i class="fa fa-search-plus"></i></span> to add a filter.</h3>
 			</div>
 			<hr>
@@ -43,7 +45,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="row in rows">
+					<tr v-for="row in filtered">
 						<td v-for="field in row" v-text="field"></td>
 					</tr>
 				</tbody>
@@ -105,6 +107,14 @@
 								// Assign labels to document
 								self.labels = labels;
 
+								labels.forEach(function (label) {
+									self.filters.push({
+										key: label,
+										value: null,
+										active: false
+									})
+								});
+
 								// Parse rows
 								response.rows.forEach(function (row) {
 									row.cellsArray.length = labels.length;
@@ -117,21 +127,31 @@
 		},
 		methods: {
 			addFilter: function (label) {
-				this.filters.indexOf(label) == -1 ? this.filters.push(label) : console.log('Filter already exists.');
+				this.filters.forEach(function (filter) {
+					if (filter.key === label) {
+						filter.active = true;
+					}
+				});
 			},
 			removeFilter: function (label) {
-				this.filters.indexOf(label) != -1 ? this.filters.splice(this.filters.indexOf(label), 1) : console.log('Filter doesn\'t exists.');
+				this.filters.forEach(function (filter) {
+					if (filter.key === label) {
+						filter.active = false;
+					}
+				});
 			},
 			isFilter: function (label) {
-				if (this.filters.indexOf(label) == -1) {
-					return false;
-				} else {
-					return true;
-				}
+				var result = false;
+				this.filters.forEach(function (filter) {
+					if (filter.key == label && filter.active == true) {
+						result = true;
+					}
+				});
+				return result;
 			},
 			options: function (filter) {
 				var options = [],
-					index = this.labels.indexOf(filter);
+					index = this.filters.indexOf(filter);
 
 				this.rows.forEach(function (row) {
 					if (options.indexOf(row[index]) == -1) {
@@ -140,6 +160,31 @@
 				});
 
 				return options.sort();
+			}
+		},
+		computed: {
+			activeFilters: function () {
+				return this.filters.filter(function (filter) {
+					if (filter.active) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+			},
+			filtered: function () {
+				var self = this;
+				return this.rows.filter(function (row) {
+					var flag = true;
+					for (var i = 0; i < self.filters.length; i++) {
+						if (self.filters[i].value != null && self.filters[i].active) {
+							if (row[i] != self.filters[i].value) {
+								flag = false;
+							}
+						}
+					}
+					return flag;
+				});
 			}
 		}
 	}
