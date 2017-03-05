@@ -92,3 +92,8 @@ $RECYCLE.BIN/
 
 ### Webpack ###
 dist/
+
+### Firebase ###
+.firebaserc
+database.rules.json
+firebase.json
