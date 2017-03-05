@@ -89,6 +89,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-### Webpack ###
-dist/

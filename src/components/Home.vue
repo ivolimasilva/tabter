@@ -17,8 +17,7 @@
 				</form>
 				<h3>Insert a <strong>public</strong> link for your document and <strong class="is-title">Tabter</strong> will displayed and
 					provide the option to filter it.</h3>
-				<h3>Here is an <a class="is-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1kDqc3twQjie_sHaOAdH_tw9Dwu_DaYyXwLaYWfSEnNA/edit#gid=0">example</a>					of a document and its <a class="is-link" href="/d/1kDqc3twQjie_sHaOAdH_tw9Dwu_DaYyXwLaYWfSEnNA/0">result</a> using <strong
-						class="is-title">Tabter</strong>.</h3>
+				<h3>Here is an <a class="is-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1kDqc3twQjie_sHaOAdH_tw9Dwu_DaYyXwLaYWfSEnNA/edit#gid=0">example</a> of a document and its <a class="is-link" class="is-title">Tabter</strong>.</h3>
 			</div>
 		</div>
 	</section>
