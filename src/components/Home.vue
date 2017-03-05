@@ -3,7 +3,7 @@
 		<div class="hero-body">
 			<div class="container has-text-centered">
 				<h1 class="title is-1">Tabter</h1>
-				<h2 class="subtitle is-3">An alternative to share and filter Google Sheets with a better experience in mind.</h2>
+				<h2 class="subtitle is-3" v-translate>An alternative to share and filter Google Sheets with a better experience in mind.</h2>
 				<form class="control is-grouped" v-on:submit.prevent="onSubmit">
 					<p class="control is-expanded">
 						<input class="input is-large" type="text" placeholder="https://docs.google.com/spreadsheets/d/..." v-model="url">
@@ -15,9 +15,8 @@
 						</button>
 					</p>
 				</form>
-				<h3>Insert a <strong>public</strong> link for your document and <strong class="is-title">Tabter</strong> will displayed and
-					provide the option to filter it.</h3>
-				<h3>Here is an <a class="is-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1kDqc3twQjie_sHaOAdH_tw9Dwu_DaYyXwLaYWfSEnNA/edit#gid=0">example</a>	of a document and its <a class="is-link" href="/d/1kDqc3twQjie_sHaOAdH_tw9Dwu_DaYyXwLaYWfSEnNA/0">result</a> using <strong class="is-title">Tabter</strong>.</h3>
+				<h3>Insert a <strong>public</strong> link for your document and <strong class="is-title">Tabter</strong> will displayed and provide the option to filter it.</h3>
+				<h3>Here is an <a class="is-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1kDqc3twQjie_sHaOAdH_tw9Dwu_DaYyXwLaYWfSEnNA/edit#gid=0">example</a> of a document and its <a class="is-link" href="/d/1kDqc3twQjie_sHaOAdH_tw9Dwu_DaYyXwLaYWfSEnNA/0">result</a> using <strong class="is-title">Tabter</strong>.</h3>
 			</div>
 		</div>
 	</section>
@@ -32,6 +31,9 @@
 				isProcessing: false,
 				errorMsg: ''
 			}
+		},
+		mounted: function () {
+			this.$translate.setLang(navigator.language || navigator.userLanguage);
 		},
 		methods: {
 			onSubmit: function () {
@@ -62,6 +64,11 @@
 					this.isProcessing = false;
 					return false;
 				}
+			}
+		},
+		locales: {
+			'pt-PT': {
+				'An alternative to share and filter Google Sheets with a better experience in mind.': 'Uma alternativa para partilhar e filtrar Folhas de Cálculo de uma maneira simples e bonita.'
 			}
 		}
 	}

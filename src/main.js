@@ -1,6 +1,7 @@
 // Modules
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueTranslate  from 'vue-translate-plugin'
 import Sheetrock from 'sheetrock'
 
 // Components
@@ -11,6 +12,7 @@ import Table from './components/Table.vue'
 window.sheetrock = Sheetrock;
 
 Vue.use(VueRouter);
+Vue.use(VueTranslate);
 
 const router = new VueRouter({
 	mode: 'history',

@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="has-text-centered" v-if="activeFilters.length == 0">
-				<h3 class="title is-5">You have no filters selected. Click on a <span class="icon"><i class="fa fa-search-plus"></i></span> to add a filter.</h3>
+				<h3 class="title is-5"><span v-translate>You have no filters selected. Click on a </span><span class="icon"><i class="fa fa-search-plus"></i></span><span v-translate> to add a filter.</span></h3>
 			</div>
 			<hr>
 		</div>
@@ -66,6 +66,8 @@
 			}
 		},
 		mounted: function () {
+			this.$translate.setLang(navigator.language || navigator.userLanguage);
+
 			var self = this;
 
 			sheetrock({
@@ -91,13 +93,13 @@
 							return new Promise(function (resolve, reject) {
 								var result = [];
 								labels.forEach(function (label, index) {
-									if (label.length == 1) {
+									if (label.length <= 1) {
 										resolve(result);
 									} else {
 										result.push(label);
 									}
 								});
-								reject('Error parsing document.');
+								resolve(result);
 							});
 						};
 
@@ -185,6 +187,12 @@
 					}
 					return flag;
 				});
+			}
+		},
+		locales: {
+			'pt-PT': {
+				'You have no filters selected. Click on a ': 'Não tem qualquer filtro selecionado. Clique numa ',
+				' to add a filter.': ' para adicionar um filtro.'
 			}
 		}
 	}
