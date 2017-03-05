@@ -13,6 +13,8 @@ Since Google Sheets doesn't let you filter documents unless you have permissions
 Insert a Google Sheet link in the landing page and click __go__!
 
 The link must belong to a public document (no need for editing permissions) and contain the `document-id` and `page-id` in this way:
-```https://docs.google.com/spreadsheets/d/<document-id>/edit#gid=<page-id>```
+```
+https://docs.google.com/spreadsheets/d/<document-id>/edit#gid=<page-id>
+```
 
 In the online version there's an example with links to an example document and its results.
