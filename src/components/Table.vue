@@ -214,19 +214,13 @@
 		}
 	}
 
-
-
 	.table th {
 		text-align: center !important;
 	}
 
-
-
 	.table-component .icon {
 		font-size: small;
 	}
-
-
 
 	.table td {
 		text-align: center !important;
