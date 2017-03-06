@@ -18,7 +18,9 @@
 				</div>
 			</div>
 			<div class="has-text-centered" v-if="activeFilters.length == 0">
-				<h3 class="title is-5"><span v-translate>You have no filters selected. Click on a </span><span class="icon"><i class="fa fa-search-plus"></i></span><span v-translate> to add a filter.</span></h3>
+				<h3 class="title is-5"><span v-translate>You have no filters selected. Click on a </span><span class="icon"><i class="fa fa-search-plus"></i></span>
+					<span v-translate> to add a filter.</span>
+				</h3>
 			</div>
 			<hr>
 		</div>
@@ -119,8 +121,10 @@
 
 								// Parse rows
 								response.rows.forEach(function (row) {
-									row.cellsArray.length = labels.length;
-									self.rows.push(row.cellsArray);
+									if (JSON.stringify(row.cellsArray) != JSON.stringify(labels)) {
+										row.cellsArray.length = labels.length;
+										self.rows.push(row.cellsArray);
+									}
 								});
 							});
 					}
@@ -203,21 +207,27 @@
 	[v-cloak] {
 		display: none;
 	}
-	
+
 	@media screen and (min-width: 1000px) {
 		.container.is-fluid {
 			margin: 0 10em !important;
 		}
 	}
-	
+
+
+
 	.table th {
 		text-align: center !important;
 	}
-	
+
+
+
 	.table-component .icon {
 		font-size: small;
 	}
-	
+
+
+
 	.table td {
 		text-align: center !important;
 		vertical-align: middle;
