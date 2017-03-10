@@ -4,7 +4,7 @@
 An alternative to share and filter Google Sheets with a better experience in mind.
 
 ## Availability
-This tool is available online [here](https://tabter-3e979.firebaseapp.com/). You can host it elsewhere if you like it but please give credit where is due.
+This tool is available online [here](https://tabter.ivolimasilva.xyz/). You can host it elsewhere if you like it but please give credit where is due.
 
 ## Context
 Since Google Sheets doesn't let you filter documents unless you have permissions to edit the file, so I created this little tool to do that with any document.
