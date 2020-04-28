@@ -1,0 +1,26 @@
+@import "..";
+
+/* ==========================================================================
+    All typography variants
+    ========================================================================== */
+
+@define-mixin typography-h1 {
+}
+
+@define-mixin typography-h2 {
+}
+
+@define-mixin typography-h3 {
+}
+
+@define-mixin typography-h4 {
+}
+
+@define-mixin typography-h5 {
+}
+
+@define-mixin typography-p {
+}
+
+@define-mixin typography-a {
+}

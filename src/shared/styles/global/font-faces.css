@@ -1,0 +1,15 @@
+/* ================================================================================
+   Fonts
+   If you are going to include custom fonts please use the /src/shared/media/fonts directory.
+   ================================================================================ */
+
+/* stylelint-disable scale-unlimited/declaration-strict-value */
+
+@font-face {
+    font-family: "Product Sans";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../../media/fonts/product-sans-regular.data-url.woff2") format("woff2");
+}
+
+/* stylelint-enable scale-unlimited/declaration-strict-value */

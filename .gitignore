@@ -1,4 +1,3 @@
-
 ### Git ###
 *.orig
 
@@ -97,3 +96,6 @@ dist/
 .firebaserc
 database.rules.json
 firebase.json
+
+# Next.js
+.next/

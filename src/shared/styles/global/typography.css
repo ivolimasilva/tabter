@@ -1,0 +1,66 @@
+@import "..";
+
+/* ==========================================================================
+   Typography Defaults
+   ========================================================================== */
+
+html {
+    font-size: 62.5%; /* 62.5% so that all the REM measurements re based on 10px sizing */
+}
+
+body {
+    @mixin text-smooth;
+
+    font-family: var(--font-family);
+    overflow-wrap: break-word;  /* Break long words by default */
+    -webkit-tap-highlight-color: transparent;  /* Do not show a highlight (rectangle around the link) while tapping it */
+}
+
+@mixin theme-light {
+    color: var(--color-black);
+}
+
+@mixin theme-dark {
+    color: var(--color-white);
+}
+
+/* ==========================================================================
+  Headings
+  ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+}
+
+h1 {
+    @mixin typography-h1;
+}
+
+h2 {
+    @mixin typography-h2;
+}
+
+h3 {
+    @mixin typography-h3;
+}
+
+h4 {
+    @mixin typography-h4;
+}
+
+h5 {
+    @mixin typography-h5;
+}
+
+p {
+    @mixin typography-p;
+}
+
+a {
+    @mixin typography-a;
+}

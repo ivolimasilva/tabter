@@ -1,0 +1,22 @@
+@define-mixin animated-underline {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0.1rem;
+        bottom: 0;
+        left: 0.1rem;
+        height: 0.1rem;
+        transform: scale(0);
+        transform-origin: left;
+        background-color: currentColor;
+        transition: transform var(--duration-standard) ease-in-out;
+    }
+
+    &:hover::after,
+    &:focus::after,
+    &:active::after {
+        transform: scale(1);
+    }
+}

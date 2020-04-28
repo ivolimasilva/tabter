@@ -1,0 +1,49 @@
+@import "../../styles";
+
+:root {
+    --size-icon: 2.4rem;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 72rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1rem solid var(--color-transparent);
+    background-color: var(--color-lighter-gray);
+    border-radius: 0.8rem;
+    transition: background-color var(--duration-fast) ease-in;
+
+    &.focused {
+        background-color: var(--color-white);
+        box-shadow:
+            0 0.1rem 0.1rem 0 color(var(--color-gray) a(30%)),
+            0 0.1rem 0.3rem 0.1rem color(var(--color-gray) a(15%));
+    }
+}
+
+.input {
+    width: 100%;
+    height: 4.6rem;
+    padding-left: 5.6rem;
+    border: none;
+    outline: none;
+    background-color: var(--color-transparent);
+    font-size: 1.6rem;
+}
+
+.searchButton {
+    @mixin unstyled-button;
+
+    position: absolute;
+    left: 0;
+    padding: 0.8rem 1.3rem;
+}
+
+.icon {
+    width: var(--size-icon);
+    height: var(--size-icon);
+    fill: var(--color-light-gray);
+}

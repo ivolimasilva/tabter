@@ -1,0 +1,27 @@
+@define-mixin theme-light $selector: null {
+    @media (prefers-color-scheme: light) {
+        body:not([data-theme]) {
+            @mixin-content;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body[data-theme] {
+            @mixin-content;
+        }
+    }
+}
+
+@define-mixin theme-dark $selector: null {
+    @media (prefers-color-scheme: dark) {
+        body:not([data-theme]) {
+            @mixin-content;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        body[data-theme] {
+            @mixin-content;
+        }
+    }
+}
