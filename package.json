@@ -1,30 +1,67 @@
 {
   "name": "tabter",
-  "description": "An alternative to share and filter Google Sheets with a better experience in mind.",
+  "description": "A visualizer to share and filter Google Sheets with a better experience in mind.",
   "version": "0.0.0",
-  "author": "Ivo Lima Silva (ivolimasilva@outlook.com)",
-  "license": "GPL-3.0",
-  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Ivo Lima Silva",
+    "email": "ivolimasilva@outlook.com",
+    "url": "http://ivolimasilva.xyz"
+  },
+  "homepage": "https://github.com/ivolimasilva/tabter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivolimasilva/tabter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ivolimasilva/tabter/issues"
+  },
+  "browserslist": [
+    "extends browserslist-config-google/modern"
+  ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "next",
+    "prebuild": "rimraf .next",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production next start",
+    "clean": "rimraf .next node_modules",
+    "lint": "npm run lint:eslint",
+    "lint:eslint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
-    "sheetrock": "^1.1.4",
-    "vue": "^2.2.1",
-    "vue-router": "^2.3.0",
-    "vue-translate-plugin": "^1.2.0"
+    "@moxy/next-compile-node-modules": "^1.3.5",
+    "@moxy/next-intl": "^2.0.2",
+    "@moxy/next-layout": "^2.1.2",
+    "@moxy/next-webpack-oneof": "^1.0.2",
+    "cross-env": "^7.0.2",
+    "next": "^9.4.4",
+    "next-compose-plugins": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-intl": "^4.6.10"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-preset-latest": "^6.0.0",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "vue-loader": "^11.0.0",
-    "vue-template-compiler": "^2.2.1",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@moxy/eslint-config-babel": "^12.1.1",
+    "@moxy/eslint-config-base": "^12.1.1",
+    "@moxy/eslint-config-jest": "^12.1.1",
+    "@moxy/eslint-config-react": "^12.1.1",
+    "@moxy/eslint-config-react-web-a11y": "^12.1.1",
+    "@types/node": "^14.0.13",
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "browserslist-config-google": "^2.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
   }
 }
