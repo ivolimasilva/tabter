@@ -3,11 +3,14 @@ import React, { forwardRef } from 'react';
 import Icon from '@moxy/react-icon';
 
 /* SVGs */
-const searchSvg = import(/* webpackChunkName: "svg-sprite" */ '../../media/icons/search.inline.svg');
+const crossSvg = import(/* webpackChunkName: "svg-sprite" */ '../../media/icons/cross.inline.svg');
+const magnifierSvg = import(/* webpackChunkName: "svg-sprite" */ '../../media/icons/magnifier.inline.svg');
 
 /* Icons */
-const SearchIcon = forwardRef((props, ref) => <Icon ref={ ref } { ...props } svg={ searchSvg } />);
+const CrossIcon = forwardRef((props, ref) => <Icon ref={ ref } { ...props } svg={ crossSvg } />);
+const MagnifierIcon = forwardRef((props, ref) => <Icon ref={ ref } { ...props } svg={ magnifierSvg } />);
 
 export {
-    SearchIcon,
+    CrossIcon,
+    MagnifierIcon,
 };

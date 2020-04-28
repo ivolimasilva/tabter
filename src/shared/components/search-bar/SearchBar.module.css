@@ -42,6 +42,15 @@
     padding: 0.8rem 1.3rem;
 }
 
+.clearButton {
+    @mixin unstyled-button;
+
+    position: absolute;
+    right: 0;
+    padding: 0.8rem 1.3rem;
+    background-color: var(--color-lighter-gray);
+}
+
 .icon {
     width: var(--size-icon);
     height: var(--size-icon);
