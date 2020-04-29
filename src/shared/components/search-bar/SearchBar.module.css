@@ -2,6 +2,7 @@
 
 :root {
     --size-icon: 2.4rem;
+    --padding-icon: 0.8rem 1.3rem;
 }
 
 .container {
@@ -43,7 +44,7 @@
 
     position: absolute;
     left: 0;
-    padding: 0.8rem 1.3rem;
+    padding: var(--padding-icon);
 }
 
 .clearButton {
@@ -51,9 +52,16 @@
 
     position: absolute;
     right: 0;
-    padding: 0.8rem 1.3rem;
+    padding: var(--padding-icon);
+    opacity: 0;
     background-color: var(--color-lighter-gray);
-    transition: background-color var(--duration-fast) ease-in;
+    transition:
+        background-color var(--duration-fast) ease-in,
+        opacity var(--duration-fast) ease-in-out;
+
+    &.visible {
+        opacity: 1;
+    }
 }
 
 .icon {

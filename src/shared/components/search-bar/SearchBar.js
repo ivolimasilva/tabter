@@ -15,11 +15,20 @@ import styles from './SearchBar.module.css';
 export const SearchBar = ({ className }) => {
     const formRef = useRef();
     const inputRef = useRef();
+    const clearRef = useRef();
+
     const router = useRouter();
+
     const { formatMessage } = useIntl();
 
     const handleChange = useCallback(({ target: { value } }) => {
         console.log('Analyzing...', value);
+
+        if (value) {
+            clearRef.current.classList.add(styles.visible);
+        } else {
+            clearRef.current.classList.remove(styles.visible);
+        }
 
         if (value.match(GOOGLE_SHEETS_REGEX)) {
             const { sheetId, pageId } = getInfoFromSheetsUrl(value);
@@ -36,6 +45,7 @@ export const SearchBar = ({ className }) => {
         event.preventDefault();
 
         inputRef.current.value = '';
+        clearRef.current.classList.remove(styles.visible);
         router.push('/');
     }, [router]);
 
@@ -52,7 +62,7 @@ export const SearchBar = ({ className }) => {
                 onChange={ handleChange }
                 onFocus={ toggleFocusClass }
                 onBlur={ toggleFocusClass } />
-            <button onClick={ handleClearClick } className={ styles.clearButton }>
+            <button ref={ clearRef } onClick={ handleClearClick } className={ styles.clearButton }>
                 <CrossIcon className={ styles.icon } />
             </button>
         </form>

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import Link from 'next/link';
 import SearchBar from '../search-bar';
+import Options from '../options';
 
 import styles from './Header.module.css';
 
@@ -16,6 +17,7 @@ export const Header = ({ className }) => (
                 </a>
             </Link>
             <SearchBar className={ styles.search } />
+            <Options />
         </div>
     </header>
 );

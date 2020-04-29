@@ -8,6 +8,7 @@
     position: relative;
     height: 4.8rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 

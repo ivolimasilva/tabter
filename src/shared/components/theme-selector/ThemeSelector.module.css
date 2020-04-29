@@ -1,0 +1,53 @@
+@import "../../styles";
+
+:root {
+    --size: 1.6em;
+}
+
+.container {
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    padding: 0;
+    border: none;
+    outline-style: none;
+    background: transparent;
+    border-radius: 0;
+    cursor: pointer;
+    appearance: none;
+}
+
+.icon {
+    @mixin typography-a;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition:
+        opacity var(--duration-long) ease-in-out,
+        transform var(--duration-long) ease-in-out;
+}
+
+@mixin theme-light {
+    & .icon {
+        color: var(--color-light-gray);
+    }
+
+    & .sun {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@mixin theme-dark {
+    & .icon {
+        color: var(--color-white);
+    }
+
+    & .moon {
+        transform: scale(0);
+        opacity: 0;
+    }
+}

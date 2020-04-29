@@ -1,0 +1,45 @@
+@import "../../styles";
+
+:root {
+    --border-top-size: 0.5rem;
+    --border-size: 0.4rem;
+}
+
+.container {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0.5rem;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        margin: auto 0;
+        border-right: var(--border-size) solid var(--color-transparent);
+        border-left: var(--border-size) solid var(--color-transparent);
+        pointer-events: none;
+    }
+}
+
+.select {
+    border: none;
+    background: none;
+    color: currentColor;
+    font-size: 1.8rem;
+    cursor: pointer;
+    appearance: none;
+}
+
+@mixin theme-light {
+    & .container::after {
+        border-top: var(--border-top-size) solid var(--color-black);
+    }
+}
+
+@mixin theme-dark {
+    & .container::after {
+        border-top: var(--border-top-size) solid var(--color-white);
+    }
+}
