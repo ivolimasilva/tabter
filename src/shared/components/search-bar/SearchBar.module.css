@@ -21,6 +21,10 @@
         box-shadow:
             0 0.1rem 0.1rem 0 color(var(--color-gray) a(30%)),
             0 0.1rem 0.3rem 0.1rem color(var(--color-gray) a(15%));
+
+        & .clearButton {
+            background-color: var(--color-white);
+        }
     }
 }
 
@@ -49,6 +53,7 @@
     right: 0;
     padding: 0.8rem 1.3rem;
     background-color: var(--color-lighter-gray);
+    transition: background-color var(--duration-fast) ease-in;
 }
 
 .icon {
