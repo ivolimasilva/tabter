@@ -1,7 +1,11 @@
 @import "../../styles";
 
+:root {
+    --size-logo: 3.5rem;
+}
+
 .container {
-    padding: 0.8rem;
+    padding: 0.8rem 1.2rem;
 }
 
 .content {
@@ -13,9 +17,17 @@
 }
 
 .title {
+    display: flex;
+    align-items: center;
     color: var(--color-light-gray);
     font-size: 2.2rem;
     text-decoration: none;
+}
+
+.logo {
+    width: var(--size-logo);
+    height: var(--size-logo);
+    margin-right: 0.8rem;
 }
 
 .search {

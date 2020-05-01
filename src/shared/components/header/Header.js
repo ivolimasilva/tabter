@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Link from 'next/link';
+import { TabterIcon } from '../icons';
 import SearchBar from '../search-bar';
 import Options from '../options';
 
@@ -13,6 +14,7 @@ export const Header = ({ className }) => (
         <div className={ styles.content }>
             <Link href="/">
                 <a className={ styles.title }>
+                    <TabterIcon className={ styles.logo } />
                     Tabter
                 </a>
             </Link>
