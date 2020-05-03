@@ -5,7 +5,8 @@
 }
 
 .container {
-    padding: 0.8rem 1.2rem;
+    padding: 0.8rem 1.5rem;
+    transition: background-color var(--duration-long) ease-in-out;
 }
 
 .content {
@@ -22,6 +23,22 @@
     color: var(--color-light-gray);
     font-size: 2.2rem;
     text-decoration: none;
+}
+
+@mixin theme-light {
+    & .title {
+        color: var(--color-light-gray);
+    }
+}
+
+@mixin theme-dark {
+    & .container {
+        background-color: var(--color-dark-gray);
+    }
+
+    & .title {
+        color: var(--color-lighter-gray);
+    }
 }
 
 .logo {

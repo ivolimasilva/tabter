@@ -10,9 +10,11 @@ export const fetchData = async (sheet, page) => {
 
     const headings = table.cols.filter((col) => !!col.label).map((col) => col.label);
     const rows = table.rows.map(({ c }) =>
-        headings.map((heading, index) => ({
-            [heading]: c[index].v,
-        })));
+        headings.reduce((acc, heading, index) => {
+            acc[heading] = c[index].v;
+
+            return acc;
+        }, {}));
 
     return {
         headings,

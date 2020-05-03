@@ -1,0 +1,87 @@
+@import "../../shared/styles";
+
+:root {
+    --size-search: 1.2rem;
+    --spacing-search: 1rem;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.filters {
+    display: flex;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.filterInput {
+    @mixin unstyled-select;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.heading {
+    padding-left: calc(var(--size-search) + var(--spacing-search));
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-medium);
+}
+
+.addFilter {
+    @mixin unstyled-button;
+
+    width: var(--size-search);
+    height: var(--size-search);
+    margin-left: var(--spacing-search);
+    color: currentColor;
+    transition: opacity var(--duration-fast) ease-in-out;
+}
+
+.icon {
+    width: 100%;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.body {
+    font-size: 1.4rem;
+    text-align: center;
+
+    &::before {
+        content: ".";
+        display: block;
+        visibility: hidden;
+        line-height: 1em;
+    }
+}
+
+.row {
+    height: 5rem;
+
+    &:not(:last-child) > td {
+        border-bottom: 0.1rem solid var(--color-lighter-gray);
+    }
+}
+
+@mixin theme-light {
+    & .table {
+        color: var(--color-dark);
+    }
+}
+
+@mixin theme-dark {
+    & .table {
+        color: currentColor;
+    }
+}

@@ -7,9 +7,11 @@
     --color-black: #000;
     --color-dark: #181818;
     --color-primary: #129e5a;
-    --color-gray: #414549;
+    --color-darker-gray: #414549;
+    --color-dark-gray: #333;
+    --color-gray: #515151;
     --color-light-gray: #5f6368;
-    --color-lighter-gray: #f1f3f4;
+    --color-lighter-gray: #e3e3e3;
     --color-transparent: color(var(--color-white) a(0%));
 }
 

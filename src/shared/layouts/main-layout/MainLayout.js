@@ -8,11 +8,11 @@ import styles from './MainLayout.module.css';
 
 export const MainLayout = ({ children, className }) => (
     <Fragment>
-        <Header className={ styles.header } />
+        <Header />
         <main className={ classNames(styles.content, className) }>
             { children }
         </main>
-        <footer className={ styles.footer }>
+        <footer>
             Footer
         </footer>
     </Fragment>

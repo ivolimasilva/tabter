@@ -1,0 +1,7 @@
+@define-mixin unstyled-select {
+    border: none;
+    background: none;
+    color: currentColor;
+    cursor: pointer;
+    appearance: none;
+}

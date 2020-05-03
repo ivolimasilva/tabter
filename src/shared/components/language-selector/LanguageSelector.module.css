@@ -17,29 +17,16 @@
         transform: rotate(45deg);
         display: inline-block;
         border: solid currentColor;
-        border-width: 0 0.3rem 0.3rem 0;
+        border-width: 0 0.2rem 0.2rem 0;
         pointer-events: none;
     }
 }
 
 .select {
+    @mixin unstyled-select;
+
     min-width: 10rem;
-    border: none;
-    background: none;
-    color: currentColor;
+    padding-right: 2rem;
+    direction: rtl;
     font-size: 1.8rem;
-    cursor: pointer;
-    appearance: none;
 }
-
-/* @mixin theme-light {
-    & .container::after {
-        border-top: var(--border-top-size) solid var(--color-black);
-    }
-}
-
-@mixin theme-dark {
-    & .container::after {
-        border-top: var(--border-top-size) solid var(--color-white);
-    }
-} */

@@ -36,31 +36,3 @@ h5,
 p {
     margin: 0;
 }
-
-h1 {
-    @mixin typography-h1;
-}
-
-h2 {
-    @mixin typography-h2;
-}
-
-h3 {
-    @mixin typography-h3;
-}
-
-h4 {
-    @mixin typography-h4;
-}
-
-h5 {
-    @mixin typography-h5;
-}
-
-p {
-    @mixin typography-p;
-}
-
-a {
-    @mixin typography-a;
-}

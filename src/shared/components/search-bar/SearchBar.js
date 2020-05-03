@@ -63,9 +63,9 @@ export const SearchBar = ({ className }) => {
 
     return (
         <form ref={ formRef } className={ classNames(styles.container, className) }>
-            <button className={ styles.searchButton }>
+            <span className={ styles.searchButton }>
                 <MagnifierIcon className={ styles.icon } />
-            </button>
+            </span>
             <input
                 required
                 ref={ inputRef }
