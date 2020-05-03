@@ -11,19 +11,19 @@
     &::after {
         content: "";
         position: absolute;
-        top: 0;
-        right: 0.5rem;
-        bottom: 0;
-        width: 0;
-        height: 0;
-        margin: auto 0;
-        border-right: var(--border-size) solid var(--color-transparent);
-        border-left: var(--border-size) solid var(--color-transparent);
+        top: 0.3rem;
+        right: 0.3rem;
+        padding: 0.3rem;
+        transform: rotate(45deg);
+        display: inline-block;
+        border: solid currentColor;
+        border-width: 0 0.3rem 0.3rem 0;
         pointer-events: none;
     }
 }
 
 .select {
+    min-width: 10rem;
     border: none;
     background: none;
     color: currentColor;
@@ -32,7 +32,7 @@
     appearance: none;
 }
 
-@mixin theme-light {
+/* @mixin theme-light {
     & .container::after {
         border-top: var(--border-top-size) solid var(--color-black);
     }
@@ -42,4 +42,4 @@
     & .container::after {
         border-top: var(--border-top-size) solid var(--color-white);
     }
-}
+} */

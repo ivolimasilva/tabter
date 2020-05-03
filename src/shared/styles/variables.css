@@ -5,7 +5,7 @@
 :root {
     --color-white: #fff;
     --color-black: #000;
-    --color-dark: #151528;
+    --color-dark: #181818;
     --color-primary: #129e5a;
     --color-gray: #414549;
     --color-light-gray: #5f6368;
@@ -29,6 +29,7 @@
     --duration-fast: 100ms;
     --duration-standard: 300ms;
     --duration-long: 500ms;
+    --duration-longer: 800ms;
 }
 
 /* ==========================================================================
@@ -36,8 +37,8 @@
    ========================================================================== */
 
 :root {
-    --font-gelion: "Product Sans";
-    --font-family: var(--font-gelion), "Roboto", "Helvetica", sans-serif;
+    --font-product: "Product Sans";
+    --font-family: var(--font-product), "Roboto", "Helvetica", sans-serif;
 
     --font-weight-regular: 400;
     --font-weight-medium: 500;

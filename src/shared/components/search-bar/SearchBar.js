@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -7,33 +7,46 @@ import { useIntl } from 'react-intl';
 
 import { CrossIcon, MagnifierIcon } from '../icons';
 
-import { getInfoFromSheetsUrl } from '../../utils';
+import { getInfoFromSheetsUrl, createSheetsUrl } from '../../utils';
 import { GOOGLE_SHEETS_REGEX } from '../../variables';
 
 import styles from './SearchBar.module.css';
 
 export const SearchBar = ({ className }) => {
     const formRef = useRef();
-    const inputRef = useRef();
-    const clearRef = useRef();
-
+    const inputRef = useRef()
+;
     const router = useRouter();
 
     const { formatMessage } = useIntl();
 
     const handleChange = useCallback(({ target: { value } }) => {
-        console.log('Analyzing...', value);
+        if (value === '') {
+            router.push('/');
 
-        if (value) {
-            clearRef.current.classList.add(styles.visible);
-        } else {
-            clearRef.current.classList.remove(styles.visible);
+            return;
         }
 
         if (value.match(GOOGLE_SHEETS_REGEX)) {
             const { sheetId, pageId } = getInfoFromSheetsUrl(value);
 
             router.push('/d/[sheet]/[page]', `/d/${sheetId}/${pageId}`);
+        } else {
+            router.push('/error');
+        }
+    }, [router]);
+
+    useEffect(() => {
+        const { route, query: { sheet, page } } = router;
+
+        if (route === '/') {
+            inputRef.current.value = '';
+
+            return;
+        }
+
+        if (sheet && page) {
+            inputRef.current.value = createSheetsUrl(sheet, page);
         }
     }, [router]);
 
@@ -45,7 +58,6 @@ export const SearchBar = ({ className }) => {
         event.preventDefault();
 
         inputRef.current.value = '';
-        clearRef.current.classList.remove(styles.visible);
         router.push('/');
     }, [router]);
 
@@ -55,6 +67,7 @@ export const SearchBar = ({ className }) => {
                 <MagnifierIcon className={ styles.icon } />
             </button>
             <input
+                required
                 ref={ inputRef }
                 type="text"
                 className={ styles.input }
@@ -62,7 +75,7 @@ export const SearchBar = ({ className }) => {
                 onChange={ handleChange }
                 onFocus={ toggleFocusClass }
                 onBlur={ toggleFocusClass } />
-            <button ref={ clearRef } onClick={ handleClearClick } className={ styles.clearButton }>
+            <button onClick={ handleClearClick } className={ styles.clearButton }>
                 <CrossIcon className={ styles.icon } />
             </button>
         </form>

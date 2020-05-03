@@ -1,7 +1,9 @@
 import React from 'react';
 
 export const Home = () => (
-    <p>Home</p>
+    <div>
+        Display information on how to use Tabter
+    </div>
 );
 
 export default Home;

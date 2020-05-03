@@ -37,6 +37,14 @@
     outline: none;
     background-color: var(--color-transparent);
     font-size: 1.6rem;
+
+    &:valid + .clearButton {
+        pointer-events: all;
+
+        & .icon {
+            opacity: 1;
+        }
+    }
 }
 
 .searchButton {
@@ -53,14 +61,12 @@
     position: absolute;
     right: 0;
     padding: var(--padding-icon);
-    opacity: 0;
     background-color: var(--color-lighter-gray);
-    transition:
-        background-color var(--duration-fast) ease-in,
-        opacity var(--duration-fast) ease-in-out;
+    pointer-events: none;
 
-    &.visible {
-        opacity: 1;
+    & .icon {
+        opacity: 0;
+        transition: opacity var(--duration-fast) ease-in-out;
     }
 }
 

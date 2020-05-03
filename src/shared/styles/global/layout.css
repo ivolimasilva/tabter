@@ -32,6 +32,8 @@ html {
     ========================================================================== */
 
 body {
+    overflow-x: hidden;
+    overflow-y: scroll;
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;

@@ -17,7 +17,7 @@ body {
 }
 
 @mixin theme-light {
-    color: var(--color-black);
+    color: var(--color-light-gray);
 }
 
 @mixin theme-dark {
