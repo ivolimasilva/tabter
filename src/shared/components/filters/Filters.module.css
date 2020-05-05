@@ -1,0 +1,23 @@
+@import "../../styles";
+
+.container,
+.zero {
+    min-height: 7.5rem;
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    font-weight: var(--font-weight-medium);
+}
+
+.zero {
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    max-height: 1.4rem;
+}

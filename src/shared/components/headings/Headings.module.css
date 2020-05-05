@@ -1,0 +1,35 @@
+@import "../../styles";
+
+:root {
+    --size-search: 1.2rem;
+    --spacing-search: 1rem;
+}
+
+.heading {
+    padding-left: calc(var(--size-search) + var(--spacing-search));
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-medium);
+    white-space: pre;
+}
+
+.add {
+    @mixin unstyled-button;
+    @mixin ripple;
+
+    width: 4.2rem;
+    height: 4.2rem;
+    margin-left: var(--spacing-search);
+    color: currentColor;
+    transition: opacity var(--duration-fast) ease-in-out;
+}
+
+.icon {
+    width: 100%;
+    width: var(--size-search);
+    height: var(--size-search);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

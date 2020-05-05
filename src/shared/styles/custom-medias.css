@@ -10,3 +10,4 @@
 @custom-media --layout-xsmall (width <= 30em); /* 480px */
 @custom-media --layout-small (width <= 48em); /* 768px */
 @custom-media --layout-medium (width <= 64em); /* 1024px */
+@custom-media --layout-large (width <= 120em); /* 1920px */

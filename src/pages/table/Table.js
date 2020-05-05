@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-import { SearchPlusIcon, SearchMinusIcon } from '../../shared/components';
+import { Headings, Filters } from '../../shared/components';
 
 import { fetchData, convertToKey } from '../../shared/utils';
 
@@ -21,44 +20,11 @@ export const Table = ({ headings, rows }) => {
             ]));
     }, []);
 
-    const computeOptions = useCallback((property) =>
-        [...new Set(rows.reduce((acc, element) => ([
-            ...acc,
-            element[property],
-        ]), []))], [rows]);
-
     return (
         <div className={ styles.container }>
-            <div className={ styles.filters }>
-                { filters.map((filter, index) => (
-                    <div key={ convertToKey(`filter_${filter}`, index) } className={ styles.filter }>
-                        { filter }
-                        <select className={ styles.filterInput }>
-                            { computeOptions(filter).map((option, index) => (
-                                <option key={ convertToKey(`option_${option}`, index) }>
-                                    { option }
-                                </option>
-                            )) }
-                        </select>
-                    </div>
-                )) }
-            </div>
+            <Filters filters={ filters } className={ styles.filters } />
             <table className={ styles.table }>
-                <thead>
-                    <tr>
-                        { headings.map((heading, index) => (
-                            <th key={ convertToKey(heading, index) } className={ styles.heading }>
-                                { heading }
-                                <button
-                                    data-heading={ heading }
-                                    onClick={ addFilter }
-                                    className={ classNames(styles.addFilter, { [styles.hidden]: filters.includes(heading) }) }>
-                                    <SearchPlusIcon className={ styles.icon } />
-                                </button>
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
+                <Headings headings={ headings } filters={ filters } onAddFilterClick={ addFilter } />
                 <tbody className={ styles.body }>
                     { rows.map((row, index) => (
                         <tr key={ convertToKey('row', index) } className={ styles.row }>
@@ -74,8 +40,8 @@ export const Table = ({ headings, rows }) => {
 };
 
 Table.propTypes = {
-    headings: PropTypes.array,
-    rows: PropTypes.array,
+    headings: PropTypes.array.isRequired,
+    rows: PropTypes.array.isRequired,
 };
 
 Table.getInitialProps = ({ query: { sheet, page } }) =>

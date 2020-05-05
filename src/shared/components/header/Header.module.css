@@ -2,6 +2,7 @@
 
 :root {
     --size-logo: 3.5rem;
+    --height-content: 4.8rem;
 }
 
 .container {
@@ -11,7 +12,7 @@
 
 .content {
     position: relative;
-    height: 4.8rem;
+    height: var(--height-content);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,6 +25,25 @@
     font-size: 2.2rem;
     text-decoration: none;
 }
+
+.logo {
+    width: var(--size-logo);
+    height: var(--size-logo);
+    margin-right: 0.8rem;
+}
+
+.search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+/* ================================================================================
+   Themes
+   ================================================================================ */
 
 @mixin theme-light {
     & .title {
@@ -41,17 +61,20 @@
     }
 }
 
-.logo {
-    width: var(--size-logo);
-    height: var(--size-logo);
-    margin-right: 0.8rem;
-}
+/* ================================================================================
+   Responsive
+   ================================================================================ */
 
-.search {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0 auto;
+@media (--layout-medium) {
+    .content {
+        height: calc(2 * var(--height-content));
+        flex-wrap: wrap;
+    }
+
+    .search {
+        position: inherit;
+        width: 100%;
+        max-width: none;
+        order: 3;
+    }
 }

@@ -1,16 +1,8 @@
-@define-mixin ripple $color: #2196f3 {
-    background-color: $color;
+@define-mixin ripple {
+    border: none;
+    outline: none;
     background-position: center;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background var(--duration-longer);
-
-    &:hover {
-        background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
-    }
-
-    &:active {
-        background-color: #6eb9f7;
-        background-size: 100%;
-        transition: background 0s;
-    }
+    transition: background 5s;
 }

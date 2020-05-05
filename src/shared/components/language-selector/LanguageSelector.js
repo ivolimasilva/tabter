@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
-import classNames from 'classnames';
 
 import { useNextIntl } from '@moxy/next-intl';
 
-import styles from './LanguageSelector.module.css';
+import Select from '../select';
 
 export const LanguageSelector = ({ className }) => {
     const { locales, locale, changeLocale } = useNextIntl();
@@ -13,13 +12,11 @@ export const LanguageSelector = ({ className }) => {
         changeLocale(event.target.value), [changeLocale]);
 
     return (
-        <div className={ classNames(styles.container, className) }>
-            <select value={ locale.id } onChange={ handleChange } className={ styles.select }>
-                { locales.map(({ id, name }) => (
-                    <option key={ id } value={ id }>{ name }</option>
-                )) }
-            </select>
-        </div>
+        <Select value={ locale.id } onChange={ handleChange } className={ className }>
+            { locales.map(({ id, name }) => (
+                <option key={ id } value={ id }>{ name }</option>
+            )) }
+        </Select>
     );
 };
 

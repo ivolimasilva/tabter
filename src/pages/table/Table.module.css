@@ -1,57 +1,15 @@
 @import "../../shared/styles";
 
-:root {
-    --size-search: 1.2rem;
-    --spacing-search: 1rem;
-}
-
 .container {
     width: 100%;
+    overflow-x: auto;
     display: flex;
     flex-direction: column;
-}
-
-.filters {
-    display: flex;
-}
-
-.filter {
-    display: flex;
-    flex-direction: column;
-}
-
-.filterInput {
-    @mixin unstyled-select;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
-}
-
-.heading {
-    padding-left: calc(var(--size-search) + var(--spacing-search));
-    font-size: 1.6rem;
-    font-weight: var(--font-weight-medium);
-}
-
-.addFilter {
-    @mixin unstyled-button;
-
-    width: var(--size-search);
-    height: var(--size-search);
-    margin-left: var(--spacing-search);
-    color: currentColor;
-    transition: opacity var(--duration-fast) ease-in-out;
-}
-
-.icon {
-    width: 100%;
-}
-
-.hidden {
-    opacity: 0;
-    pointer-events: none;
 }
 
 .body {
@@ -74,14 +32,18 @@
     }
 }
 
+/* ================================================================================
+   Themes
+   ================================================================================ */
+
 @mixin theme-light {
-    & .table {
+    & .container {
         color: var(--color-dark);
     }
 }
 
 @mixin theme-dark {
-    & .table {
+    & .container {
         color: currentColor;
     }
 }

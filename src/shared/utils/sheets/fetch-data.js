@@ -8,13 +8,26 @@ export const fetchData = async (sheet, page) => {
 
     const table = JSON.parse(text.match(GOOGLE_VIZ_REGEX)[1]).table;
 
-    const headings = table.cols.filter((col) => !!col.label).map((col) => col.label);
+    const headingsValues = table.cols.filter((col) => !!col.label).map((col) => col.label);
     const rows = table.rows.map(({ c }) =>
-        headings.reduce((acc, heading, index) => {
+        headingsValues.reduce((acc, heading, index) => {
             acc[heading] = c[index].v;
 
             return acc;
         }, {}));
+
+    const headings = headingsValues.map((heading) => {
+        const allOptions = rows.reduce((acc, element) => {
+            acc.push(element[heading]);
+
+            return acc;
+        }, []);
+
+        return {
+            value: heading,
+            options: [...new Set(allOptions)].sort(),
+        };
+    });
 
     return {
         headings,
@@ -23,3 +36,10 @@ export const fetchData = async (sheet, page) => {
 };
 
 export default fetchData;
+
+/* Headings
+{
+    value: 'Gender',
+    options: ['Male', 'Female']
+}
+*/
