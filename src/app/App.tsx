@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { AppProps } from 'next/app';
 import { withNextIntlSetup } from '@moxy/next-intl';
@@ -6,12 +6,11 @@ import { LayoutTree } from '@moxy/next-layout';
 
 import nextIntlConfig from '../../intl';
 
-// eslint-disable-next-line react/prop-types
 const MainLayout: FunctionComponent = ({ children }) => (
-    <main>{ children }</main>
+    <main>{children}</main>
 );
 
-export const App = ({ Component, pageProps }: AppProps) => (
+export const App = ({ Component, pageProps }: AppProps): ReactNode => (
     <LayoutTree Component={ Component } pageProps={ pageProps } defaultLayout={ <MainLayout /> } />
 );
 
