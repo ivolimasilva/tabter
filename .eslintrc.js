@@ -29,7 +29,9 @@ module.exports = {
     ],
     plugins: ['eslint-plugin-import'],
     rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
+        'react/jsx-fragments': 'off',
     },
     overrides: [
         {
